@@ -81,7 +81,7 @@ alias lsd='gls -l | grep "^d"'
 
 # `cat` with beautiful colors. requires Pygments installed.
 # sudo easy_install -U Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
+# alias c='pygmentize -O style=monokai -f console256 -g'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -204,3 +204,14 @@ alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo 
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="lwp-request -m '$method'"
 done
+
+# Tmux
+alias tmuxn="tmux new-session -s"
+
+# PHP
+alias homestead="~/Development/Web/Homestead/homestead"
+
+
+alias keygen="ssh-keygen -t rsa -b 4096"
+alias c="pbcopy"
+alias p="pbpaste"

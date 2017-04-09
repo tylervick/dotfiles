@@ -58,7 +58,7 @@ npm install -g "${packages[@]}"
 # Pyenv                                                                       #
 ###############################################################################
 
-$PYTHON_VERSION=3.5.2
+PYTHON_VERSION=3.5.2
 
 if test ! $(which pyenv); then
   echo "Installing $PYTHON_VERSION"

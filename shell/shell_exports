@@ -8,6 +8,8 @@ else
   export EDITOR='nano'
 fi
 
+#TODO: Add Sublime under the VISUAL export
+
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
@@ -51,12 +53,32 @@ export LESS="${less_options[*]}"
 export PAGER='less'
 
 # Load nvm
+cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# Brew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Pyenv/Python
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Golang
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # here's LS_COLORS
 # github.com/trapd00r/LS_COLORS
 # command -v gdircolors >/dev/null 2>&1 || alias gdircolors="dircolors"
 # eval "$(gdircolors -b ~/.dircolors)"
+
+
+# Android SDK HOME
+#export ANDROID_HOME=/usr/local/opt/android-sdk

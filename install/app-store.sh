@@ -1,4 +1,6 @@
 #!/bin/bash
+
+echo "PLEASE SIGN IN TO THE APP STORE FIRST!"
 if ! [ -x "$(command -v mas)" ]; then
       echo 'MAS not installed' >&2
       return 1
@@ -22,12 +24,12 @@ appIds=(
 )
 
 
-echo "Apple ID: "
-read EMAIL
+# echo "Apple ID: "
+# read EMAIL
 
-mas signin EMAIL
+# mas signin $EMAIL
 
-unset EMAIL
+# unset $EMAIL
 
 for i in ${appIds[@]}; do
   mas install $i

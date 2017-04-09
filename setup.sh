@@ -311,7 +311,6 @@ install_zsh () {
 # fi
 
 main
-# install_zsh
 
 ###############################################################################
 # Homebrew                                                                    #
@@ -370,5 +369,7 @@ $dir/install/app-store.sh
 # Don’t display the annoying prompt when quitting iTerm
 # defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+
+install_zsh
 # Reload zsh settings
 source ~/.zshrc
