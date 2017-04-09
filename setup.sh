@@ -124,14 +124,14 @@ print_success() {
 }
 
 # Warn user this script will overwrite current dotfiles
-while true; do
-  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
-  case $yn in
-    [Yy]* ) break;;
-    [Nn]* ) exit;;
-    * ) echo "Please answer yes or no.";;
-  esac
-done
+# while true; do
+  # read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+  # case $yn in
+    # [Yy]* ) break;;
+    # [Nn]* ) exit;;
+    # * ) echo "Please answer yes or no.";;
+  # esac
+# done
 
 # Get the dotfiles directory's absolute path
 SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
