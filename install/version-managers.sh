@@ -13,7 +13,10 @@
 #     ./node_modules/.bin/webpack --config webpack.local.config.js
 #
 
-$NODE_VERSION="stable"
+NODE_VERSION="stable"
+mkdir -p $HOME/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 
 if test ! $(which nvm)
 then
@@ -60,7 +63,7 @@ npm install -g "${packages[@]}"
 
 PYTHON_VERSION=3.5.2
 
-if test ! $(which pyenv); then
+if [ -x "$(command -v mackup)" ]; then
   echo "Installing $PYTHON_VERSION"
 
   # Install specified python version

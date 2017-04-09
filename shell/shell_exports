@@ -54,8 +54,8 @@ export PAGER='less'
 
 # Load nvm
 cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Brew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"

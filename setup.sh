@@ -320,12 +320,6 @@ $dir/install/brew.sh
 $dir/install/brew-cask.sh
 
 ###############################################################################
-# Node & Python                                                               #
-###############################################################################
-
-$dir/install/version-managers.sh
-
-###############################################################################
 # App Store                                                                   #
 ###############################################################################
 
@@ -369,6 +363,11 @@ $dir/install/app-store.sh
 # Don’t display the annoying prompt when quitting iTerm
 # defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+###############################################################################
+# Node & Python                                                               #
+###############################################################################
+
+$dir/install/version-managers.sh
 
 install_zsh
 # Reload zsh settings
