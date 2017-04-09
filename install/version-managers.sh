@@ -13,12 +13,14 @@
 #     ./node_modules/.bin/webpack --config webpack.local.config.js
 #
 
+$NODE_VERSION="stable"
+
 if test ! $(which nvm)
 then
   echo "Installing a stable version of Node..."
 
   # Install the latest stable version of node
-  nvm install stable
+  nvm install $NODE_VERSION
 
   # Switch to the installed version
   nvm use node
@@ -50,3 +52,23 @@ packages=(
 )
 
 npm install -g "${packages[@]}"
+
+
+###############################################################################
+# Pyenv                                                                       #
+###############################################################################
+
+$PYTHON_VERSION=3.5.2
+
+if test ! $(which pyenv); then
+  echo "Installing $PYTHON_VERSION"
+
+  # Install specified python version
+  pyenv install $PYTHON_VERSION
+
+  # Point Pyenv to newly installed Python
+  pyenv global $PYTHON_VERSION
+
+fi
+
+

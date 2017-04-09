@@ -138,13 +138,13 @@ SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 
 
-dir=~/dotfiles                        # dotfiles directory
+dir=~/.dotfiles                        # dotfiles directory
 dir_backup=~/dotfiles_old             # old dotfiles backup directory
 
 # Get current dir (so run this script from anywhere)
 
 export DOTFILES_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Create dotfiles_old in homedir
 echo -n "Creating $dir_backup for backup of any existing dotfiles in ~..."
@@ -162,10 +162,10 @@ echo "done"
 
 
 # Atom editor settings
-echo -n "Copying Atom settings.."
-mv -f ~/.atom ~/dotfiles_old/
-ln -s $HOME/dotfiles/atom ~/.atom
-echo "done"
+# echo -n "Copying Atom settings.."
+# mv -f ~/.atom ~/dotfiles_old/
+# ln -s $HOME/dotfiles/atom ~/.atom
+# echo "done"
 
 
 declare -a FILES_TO_SYMLINK=(
@@ -196,7 +196,7 @@ declare -a FILES_TO_SYMLINK=(
 
 for i in ${FILES_TO_SYMLINK[@]}; do
   echo "Moving any existing dotfiles from ~ to $dir_backup"
-  mv ~/.${i##*/} ~/dotfiles_old/
+  mv ~/.${i##*/} $dir_backup/
 done
 
 
@@ -233,38 +233,38 @@ main() {
 
   unset FILES_TO_SYMLINK
 
-  # Copy binaries
-  ln -fs $HOME/dotfiles/bin $HOME
+  # # Copy binaries
+  # ln -fs $HOME/dotfiles/bin $HOME
 
-  declare -a BINARIES=(
-    'batcharge.py'
-    'crlf'
-    'dups'
-    'git-delete-merged-branches'
-    'nyan'
-    'passive'
-    'proofread'
-    'ssh-key'
-    'weasel'
-  )
+  # declare -a BINARIES=(
+  #   'batcharge.py'
+  #   'crlf'
+  #   'dups'
+  #   'git-delete-merged-branches'
+  #   'nyan'
+  #   'passive'
+  #   'proofread'
+  #   'ssh-key'
+  #   'weasel'
+  # )
 
-  for i in ${BINARIES[@]}; do
-    echo "Changing access permissions for binary script :: ${i##*/}"
-    chmod +rwx $HOME/bin/${i##*/}
-  done
+  # for i in ${BINARIES[@]}; do
+  #   echo "Changing access permissions for binary script :: ${i##*/}"
+  #   chmod +rwx $HOME/bin/${i##*/}
+  # done
 
-  unset BINARIES
+  # unset BINARIES
 
-  # Symlink online-check.sh
-  ln -fs $HOME/dotfiles/lib/online-check.sh $HOME/online-check.sh
+  # # Symlink online-check.sh
+  # ln -fs $HOME/dotfiles/lib/online-check.sh $HOME/online-check.sh
 
-  # Write out current crontab
-  crontab -l > mycron
-  # Echo new cron into cron file
-  echo "* * * * * ~/online-check.sh" >> mycron
-  # Install new cron file
-  crontab mycron
-  rm mycron
+  # # Write out current crontab
+  # crontab -l > mycron
+  # # Echo new cron into cron file
+  # echo "* * * * * ~/online-check.sh" >> mycron
+  # # Install new cron file
+  # crontab mycron
+  # rm mycron
 
 }
 
@@ -314,6 +314,31 @@ main
 # install_zsh
 
 ###############################################################################
+# Homebrew                                                                    #
+###############################################################################
+
+$DOTFILES_DIR/install/brew.sh
+$DOTFILES_DIR/install/brew-cask.sh
+
+###############################################################################
+# Node & Python                                                               #
+###############################################################################
+
+$DOTFILES_DIR/install/version-managers.sh
+
+###############################################################################
+# App Store                                                                   #
+###############################################################################
+
+$DOTFILES_DIR/install/app-store.sh
+
+###############################################################################
+# mackup                                                                      #
+###############################################################################
+
+# $DOTFILES_DIR/install/mackup.sh
+
+###############################################################################
 # Atom                                                                        #
 ###############################################################################
 
@@ -329,7 +354,7 @@ main
 ###############################################################################
 
 # Install Zsh settings
-ln -s ~/dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
+# ln -s ~/dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
 
 
 ###############################################################################
@@ -337,13 +362,13 @@ ln -s ~/dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
+# defaults write com.apple.terminal StringEncodings -array 4
 
 # Install the Solarized Dark theme for iTerm
-open "${HOME}/dotfiles/iterm/themes/Solarized Dark.itermcolors"
+# open "${HOME}/dotfiles/iterm/themes/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+# defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 # Reload zsh settings
 source ~/.zshrc
