@@ -17,22 +17,20 @@ apps=(
     firefox
     gfxcardstatus
     google-chrome
-    google-drive
+    google-backup-and-sync
     gyazo
     hammerspoon
-    intellij-idea
     iterm2
     java
+    jetbrains-toolbox
     karabiner-elements
     macdown
-    microsoft-office
     namebench
     onyx
-    phpstorm
     pycharm
     robomongo
+    robo-3t
     sequel-pro
-    sonos
     sourcetree
     spotify
     sqlitebrowser
@@ -43,11 +41,14 @@ apps=(
     transmit
     vlc
     vmware-fusion
-    webstorm
     xquartz
 )
 
-brew cask install "${apps[@]}" --appdir=/Applications
+for i in "${apps[@]}"; do
+    brew cask search $i 2>&1 && brew cask install $i --appdir=/Applications
+done
+
+#brew cask install "${apps[@]}" --appdir=/Applications
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook suspicious-package

@@ -136,6 +136,7 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 #Turn on three finger drag
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
 # Enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -148,7 +149,7 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryCli
 defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
 
 # Set a really fast keyboard repeat rate.
-defaults write -g KeyRepeat -int 0
+#defaults write -g KeyRepeat -int 0
 
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false
@@ -205,10 +206,10 @@ defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock
 ###############################################################################
 
 # Speed up window animations
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+#defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
+#defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -303,6 +304,7 @@ defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
+# Outdated on High Sierra
 # Show item info to the right of the icons on the desktop
 /usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
 
