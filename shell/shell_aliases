@@ -215,3 +215,5 @@ alias homestead="~/Development/Web/Homestead/homestead"
 alias keygen="ssh-keygen -t rsa -b 4096"
 alias c="pbcopy"
 alias p="pbpaste"
+
+alias adbscreen='adb shell screencap -p > screen.png'

@@ -83,6 +83,18 @@ export PATH=$PATH:$GOROOT/bin
 # Android SDK HOME
 #export ANDROID_HOME=/usr/local/opt/android-sdk
 
-
 # Yarn
 export PATH="$PATH:`yarn global bin`"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Autojump (maybe go somewhere else)
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# React stuff
+REACT_EDITOR=subl
+
+# android / gradle / buck setup
+export ANDROID_SDK=/usr/local/share/android-sdk #or wherever android-sdk is installed, ie $HOME/Library/Android/sdk
+export ANDROID_SDK_ROOT=$ANDROID_SDK
+export ANDROID_HOME=$ANDROID_SDK
+export ANDROID_NDK_REPOSITORY=/usr/local/share/android-ndk
