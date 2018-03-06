@@ -165,7 +165,7 @@ alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias whois="whois -h whois-servers.net"
 
 # Download file and save it with filename of remote file
-alias get="curl -O -L"
+#alias get="curl -O -L"
 
 # Recursively delete `.DS_Store` files
 alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"

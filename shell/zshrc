@@ -9,7 +9,7 @@ dirs_to_prepend=(
   "/usr/local/git/bin"
   "/usr/local/"
   "/usr/local/mysql/bin"
-  "$HOME/dotfiles/bin"
+  "$HOME/.dotfiles/bin"
 )
 
 # Explicitly configured $PATH
