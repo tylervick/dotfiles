@@ -12,12 +12,16 @@ apps=(
     android-studio
     appcleaner
     bartender
+    charles
     disk-inventory-x
     firefox
     gfxcardstatus
     google-chrome
     google-backup-and-sync
     hammerspoon
+    handbrake
+    hipchat
+    istat-menus
     iterm2
     java
     jetbrains-toolbox
@@ -26,6 +30,7 @@ apps=(
     spotify
     sublime-text
     the-unarchiver
+    ubersicht
     vlc
 )
 
