@@ -13,35 +13,20 @@ apps=(
     appcleaner
     bartender
     disk-inventory-x
-    diskmaker-x
     firefox
     gfxcardstatus
     google-chrome
     google-backup-and-sync
-    gyazo
     hammerspoon
     iterm2
     java
     jetbrains-toolbox
-    karabiner-elements
     macdown
-    namebench
-    onyx
-    pycharm
-    robomongo
-    robo-3t
-    sequel-pro
     sourcetree
     spotify
-    sqlitebrowser
-    steam
     sublime-text
     the-unarchiver
-    transmission
-    transmit
     vlc
-    vmware-fusion
-    xquartz
 )
 
 for i in "${apps[@]}"; do

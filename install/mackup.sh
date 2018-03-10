@@ -4,7 +4,7 @@
 #TODO: Add configuration options for other cloud storage
 
 GOOGLE_DRIVE_DIR="$HOME/Google Drive"
-MACKUP_DIR="$GOOGLE_DRIVE_DIR/Backup/Mackup"
+MACKUP_DIR="$GOOGLE_DRIVE_DIR/Mackup"
 
 if ! [ -d "$GOOGLE_DRIVE_DIR" ]; then
   echo "Google Drive folder doesn't exist, setup Google Drive and try again"

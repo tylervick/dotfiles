@@ -49,18 +49,13 @@ apps=(
     docker-machine
     git
     git-extras
-    go
     homebrew/completions/brew-cask-completion
-    hugo
     jenv
     jq
     lua
     mackup
     mas
-    mongodb
-    mongodb
     mono
-    mysql
     node
     nvm
     pyenv
