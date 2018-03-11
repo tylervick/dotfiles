@@ -4,17 +4,13 @@
 [push]
   default = current
 [commit]
-  template = /Users/tylerdubester.vick/.git.commit.template
-[core]
-  excludesfile = /Users/tylerdubester.vick/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  template = /Users/tyler.vick/.git.commit.template
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[gerrit]
+  username = tvick
+[core]
+  editor = subl

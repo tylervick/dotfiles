@@ -12,15 +12,15 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew tap homebrew/versions
-brew tap homebrew/dupes
-brew tap Goles/battery
+# brew tap homebrew/versions
+# brew tap homebrew/dupes
+# brew tap Goles/battery
 
 # Make sure we’re using the latest Homebrew
 brew update
 
 # Upgrade any already-installed formulae
-brew upgrade --all
+brew upgrade
 
 # Install the Homebrew packages I use on a day-to-day basis.
 #
@@ -57,7 +57,6 @@ apps=(
     mas
     mono
     node
-    nvm
     pyenv
     pyenv-virtualenv
     pyenv-virtualenvwrapper
@@ -69,8 +68,9 @@ apps=(
     zsh
 )
 
-
-brew install "${apps[@]}"
+for i in "${apps[@]}"; do
+    brew search $i 2>&1 && brew install $i
+done
 
 # Remove outdated versions from the cellar
 brew cleanup

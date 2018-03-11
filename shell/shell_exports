@@ -53,9 +53,10 @@ export LESS="${less_options[*]}"
 export PAGER='less'
 
 # Load nvm
-cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+#cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Brew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -92,6 +93,11 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # React stuff
 REACT_EDITOR=subl
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+export JAVA_HOME="$(jenv prefix)"
 
 # android / gradle / buck setup
 export ANDROID_SDK=/usr/local/share/android-sdk #or wherever android-sdk is installed, ie $HOME/Library/Android/sdk

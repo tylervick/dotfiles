@@ -13,9 +13,15 @@
 #     ./node_modules/.bin/webpack --config webpack.local.config.js
 #
 
+# Install nvm manually since they don't support brew
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+
+source ~/.zshrc
+
 NODE_VERSION="stable"
 mkdir -p $HOME/.nvm
-source $(brew --prefix nvm)/nvm.sh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
 if test ! $(which nvm)
@@ -33,7 +39,7 @@ then
 fi
 
 # All `npm install <pkg>` commands will pin to the version that was available at the time you run the command
-npm config set save-exact = true
+# npm config set save-exact = true
 
 # Globally install with npm
 # To list globally installed npm packages and version: npm list -g --depth=0
@@ -54,7 +60,7 @@ packages=(
     yo
 )
 
-npm install -g "${packages[@]}"
+yarn global add "${packages[@]}"
 
 
 ###############################################################################
