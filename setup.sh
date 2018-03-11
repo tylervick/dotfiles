@@ -2,7 +2,7 @@
 
 # https://github.com/kaicataldo/dotfiles/blob/master/bin/install.sh
 
-# This symlinks all the dotfiles (and .atom/) to ~/
+# This symlinks all the dotfiles to ~/
 # It also symlinks ~/bin for easy updating
 
 # This is safe to run multiple times and will prompt you about anything unclear
@@ -124,27 +124,25 @@ print_success() {
 }
 
 # Warn user this script will overwrite current dotfiles
-# while true; do
-  # read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
-  # case $yn in
-    # [Yy]* ) break;;
-    # [Nn]* ) exit;;
-    # * ) echo "Please answer yes or no.";;
-  # esac
-# done
+while true; do
+  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+  case $yn in
+    [Yy]* ) break;;
+    [Nn]* ) exit;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
 
 # Get the dotfiles directory's absolute path
 SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 
-
-dir=~/.dotfiles                        # dotfiles directory
-dir_backup=~/dotfiles_old             # old dotfiles backup directory
-
 # Get current dir (so run this script from anywhere)
 
 export DOTFILES_DIR
-# DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+dir=~/.dotfiles # dotfiles directory
+dir_backup=~/dotfiles_old # old dotfiles backup directory
 
 # Create dotfiles_old in homedir
 echo -n "Creating $dir_backup for backup of any existing dotfiles in ~..."
@@ -159,14 +157,6 @@ echo "done"
 #
 # Actual symlink stuff
 #
-
-
-# Atom editor settings
-# echo -n "Copying Atom settings.."
-# mv -f ~/.atom ~/dotfiles_old/
-# ln -s $HOME/dotfiles/atom ~/.atom
-# echo "done"
-
 
 declare -a FILES_TO_SYMLINK=(
 
@@ -235,37 +225,26 @@ main() {
   unset FILES_TO_SYMLINK
 
   # # Copy binaries
-  # ln -fs $HOME/dotfiles/bin $HOME
+  ln -fs $DOTFILES_DIR/bin $HOME
 
-  # declare -a BINARIES=(
-  #   'batcharge.py'
-  #   'crlf'
-  #   'dups'
-  #   'git-delete-merged-branches'
-  #   'nyan'
-  #   'passive'
-  #   'proofread'
-  #   'ssh-key'
-  #   'weasel'
-  # )
+  declare -a BINARIES=(
+    'batcharge.py'
+    'crlf'
+    'dups'
+    'git-delete-merged-branches'
+    'nyan'
+    'passive'
+    'proofread'
+    'ssh-key'
+    'weasel'
+  )
 
-  # for i in ${BINARIES[@]}; do
-  #   echo "Changing access permissions for binary script :: ${i##*/}"
-  #   chmod +rwx $HOME/bin/${i##*/}
-  # done
+  for i in ${BINARIES[@]}; do
+    echo "Changing access permissions for binary script :: ${i##*/}"
+    chmod +rwx $HOME/bin/${i##*/}
+  done
 
-  # unset BINARIES
-
-  # # Symlink online-check.sh
-  # ln -fs $HOME/dotfiles/lib/online-check.sh $HOME/online-check.sh
-
-  # # Write out current crontab
-  # crontab -l > mycron
-  # # Echo new cron into cron file
-  # echo "* * * * * ~/online-check.sh" >> mycron
-  # # Install new cron file
-  # crontab mycron
-  # rm mycron
+  unset BINARIES
 
 }
 
@@ -302,16 +281,13 @@ install_zsh () {
   fi
 }
 
-# Package managers & packages
-
-# . "$DOTFILES_DIR/install/brew.sh"
-# . "$DOTFILES_DIR/install/npm.sh"
-
-# if [ "$(uname)" == "Darwin" ]; then
-    # . "$DOTFILES_DIR/install/brew-cask.sh"
-# fi
-
 main
+
+###############################################################################
+# Xcode Tools                                                                 #
+###############################################################################
+
+$dir/install/xcode-tools.sh
 
 ###############################################################################
 # Homebrew                                                                    #
@@ -327,42 +303,11 @@ $dir/install/brew-cask.sh
 $dir/install/app-store.sh
 
 ###############################################################################
-# mackup                                                                      #
-###############################################################################
-
-# $DOTFILES_DIR/install/mackup.sh
-
-###############################################################################
-# Atom                                                                        #
-###############################################################################
-
-# Copy over Atom configs
-#cp -r atom/packages.list $HOME/.atom
-
-# Install community packages
-#apm list --installed --bare - get a list of installed packages
-#apm install --packages-file $HOME/.atom/packages.list
-
-###############################################################################
 # Zsh                                                                         #
 ###############################################################################
 
 # Install Zsh settings
 # ln -s ~/dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
-
-
-###############################################################################
-# Terminal & iTerm 2                                                          #
-###############################################################################
-
-# Only use UTF-8 in Terminal.app
-# defaults write com.apple.terminal StringEncodings -array 4
-
-# Install the Solarized Dark theme for iTerm
-# open "${HOME}/dotfiles/iterm/themes/Solarized Dark.itermcolors"
-
-# Don’t display the annoying prompt when quitting iTerm
-# defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ###############################################################################
 # Node & Python                                                               #
@@ -373,3 +318,10 @@ $dir/install/version-managers.sh
 install_zsh
 # Reload zsh settings
 source ~/.zshrc
+
+###############################################################################
+# mackup                                                                      #
+###############################################################################
+
+# We need Google Drive/whatever backup to be ready first
+# $DOTFILES_DIR/install/mackup.sh
