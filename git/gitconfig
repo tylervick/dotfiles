@@ -3,8 +3,6 @@
   name = tvick
 [push]
   default = current
-[commit]
-  template = /Users/tyler.vick/.git.commit.template
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -13,4 +11,17 @@
 [gerrit]
   username = tvick
 [core]
-  editor = subl
+  editor = vim
+  excludesfile = /Users/tyler.vick/.gitignore_global
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "sourcetree"]
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[commit]
+  template = /Users/tyler.vick/.git.commit.template
+[submodule]
+  rescurse = false
+[remote "origin"]
+  prune = true
