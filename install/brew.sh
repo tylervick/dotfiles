@@ -57,6 +57,7 @@ apps=(
     mas
     mono
     node
+    protobuf
     pyenv
     pyenv-virtualenv
     pyenv-virtualenvwrapper

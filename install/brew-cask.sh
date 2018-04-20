@@ -9,6 +9,9 @@ brew tap caskroom/versions
 apps=(
     0xed
     alfred
+    android-ndk
+    android-platform-tools
+    android-sdk
     android-studio
     appcleaner
     bartender
