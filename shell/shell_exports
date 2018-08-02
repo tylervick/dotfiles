@@ -81,9 +81,6 @@ export PATH=$PATH:$GOROOT/bin
 # eval "$(gdircolors -b ~/.dircolors)"
 
 
-# Android SDK HOME
-#export ANDROID_HOME=/usr/local/opt/android-sdk
-
 # Yarn
 export PATH="$PATH:`yarn global bin`"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -100,9 +97,11 @@ eval "$(jenv init -)"
 export JAVA_HOME="$(jenv prefix)"
 
 # android / gradle / buck setup
-export ANDROID_SDK=/usr/local/share/android-sdk
+export ANDROID_HOME=/Users/$USER/Library/Android/sdk
+export ANDROID_SDK=$ANDROID_HOME
 export ANDROID_SDK_ROOT=$ANDROID_SDK
-export ANDROID_HOME=$ANDROID_SDK
-export ANDROID_NDK_REPOSITORY=/usr/local/share/android-ndk
-export ANDROID_NDK=$ANDROID_NDK_REPOSITORY
+export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
 export ANDROID_NDK_HOME=$ANDROID_NDK
+unset ANDROID_NDK_REPOSITORY
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_NDK
+
