@@ -143,6 +143,9 @@ alias gdtp='git stash pop' # bring back your changes, but it removes them from y
 alias gchp='git cherry-pick' # cherry pick the committed code in your own branch (gchp [hash])
 alias gcln='git clean -xfd' # remove untracked files
 
+# checkout xctool (temp)
+alias gcu='git checkout utils/xctool Vendors/Boost/chat-boost'
+
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
 
@@ -217,3 +220,5 @@ alias c="pbcopy"
 alias p="pbpaste"
 
 alias adbscreen='adb shell screencap -p > screen.png'
+
+alias vpn='snapaccess credentials refresh'
