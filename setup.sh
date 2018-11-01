@@ -175,7 +175,7 @@ declare -a FILES_TO_SYMLINK=(
   'shell/screenrc'
 
   'git/gitattributes'
-  'git/gitconfig'
+  #'git/gitconfig'
   'git/gitignore'
   'git/git.commit.template'
 

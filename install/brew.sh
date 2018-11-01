@@ -44,6 +44,7 @@ brew upgrade
 # which version I'm using.
 
 apps=(
+    autojump
     awscli
     docker
     docker-machine

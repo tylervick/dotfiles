@@ -1,18 +1,15 @@
 #!/bin/bash
 
 # Install Caskroom
-brew tap caskroom/cask
-brew install brew-cask
-brew tap caskroom/versions
+#brew tap caskroom/cask
+#brew install brew-cask
+#brew tap caskroom/versions
 
 # Install packages
 apps=(
     0xed
     alfred
-    android-ndk
-    android-platform-tools
-    android-sdk
-    android-studio
+    #android-studio
     appcleaner
     bartender
     charles
@@ -23,7 +20,6 @@ apps=(
     google-backup-and-sync
     hammerspoon
     handbrake
-    hipchat
     istat-menus
     iterm2
     java
@@ -38,7 +34,7 @@ apps=(
 )
 
 for i in "${apps[@]}"; do
-    brew cask search $i 2>&1 && brew cask install $i --appdir=/Applications
+    brew search $i 2>&1 && brew cask install $i --appdir=/Applications
 done
 
 #brew cask install "${apps[@]}" --appdir=/Applications
