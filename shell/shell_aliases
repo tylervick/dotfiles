@@ -115,6 +115,7 @@ alias gss="git status -s"
 alias gp="git push origin HEAD"
 alias gpt="git push origin HEAD && git push --tags"
 alias wip="git commit -m'WIP' . && git push origin HEAD"
+#alias gpo="branch=`git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`; git push origin ${branch}"
 alias grok="ngrok start rem.jsbin-dev.com static.rem.jsbin-dev.com learn.rem.jsbin-dev.com"
 alias gl='git log'
 alias glp5='git log -5 --pretty --oneline' # view your last 5 latest commits each on their own line
@@ -126,6 +127,8 @@ alias gm='git commit -m'
 alias gam='git commit -am'
 alias gb='git branch'
 alias gc='git checkout'
+alias gcm='git checkout master'
+alias gcmp='git checkout master && git pull origin master'
 alias gra='git remote add'
 alias grr='git remote rm'
 alias gbt=git_list_branches
@@ -222,3 +225,8 @@ alias p="pbpaste"
 alias adbscreen='adb shell screencap -p > screen.png'
 
 alias vpn='snapaccess credentials refresh'
+
+alias fucksubmodules="git submodule foreach --recursive git clean -f -f -d -x && git clean -ffxd"
+
+alias b64="pbpaste | base64 --decode"
+alias b64j="b64 | python -m json.tool"

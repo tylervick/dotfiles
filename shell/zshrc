@@ -64,8 +64,8 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-syntax-highlighting)
-plugins+=(zsh-completions)
+# plugins=(zsh-syntax-highlighting)
+# plugins+=(zsh-completions)
 plugins+=(fabric brew node npm history git-flow vagrant)
 
 autoload -U compinit && compinit
@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.zsh.local ] && source ~/.zsh.local
 
 # npm tab completion
-. <(npm completion)
+# . <(npm completion)
 
 
 unsetopt correct_all

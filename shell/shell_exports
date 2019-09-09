@@ -68,6 +68,14 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Pyenv/Python
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+PYTHONPATH=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/platform/google_appengine:${PYTHONPATH}
+
+for module in ${GAE_SDK_ROOT}/lib/*; do
+  if [ -r ${module} ]; then
+    PYTHONPATH=${module}:${PYTHONPATH}
+  fi
+done
+unset module
 
 # Golang
 export GOPATH=$HOME/Development/golang
@@ -105,4 +113,7 @@ export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
 export ANDROID_NDK_HOME=$ANDROID_NDK
 unset ANDROID_NDK_REPOSITORY
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_NDK
+
+
+export PATH="$HOME/.fastlane/bin:$PATH"
 
