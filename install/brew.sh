@@ -50,7 +50,6 @@ apps=(
     docker-machine
     git
     git-extras
-    homebrew/completions/brew-cask-completion
     jenv
     jq
     lua
